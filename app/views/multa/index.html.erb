@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listado de Multas</h1>
+
+<table class="table table-striped table-hover"  style="with : 80% ">
+  <thead>
+    <tr>
+      <th>Valor</th>
+      <th>Fecha</th>
+      <th>Estado</th>
+      <th>Prestamo</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @multa.each do |multum| %>
+      <tr>
+        <td><%= multum.valor %></td>
+        <td><%= multum.fecha %></td>
+        <td><%= multum.estado.to_s %></td>
+        <td><%= multum.Prestamo_id.to_s + ' - ' + multum.Prestamo.fecha.to_s %></td>
+        <td><%= link_to 'Show', multum, :class=>"btn btn-outline-success"  %></td>
+        <td><%= link_to 'Edit', edit_multum_path(multum), :class=>"btn btn-outline-info"   %></td>
+        <td><%= link_to 'Destroy', multum, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-outline-danger" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Multa', new_multum_path, :class => "btn btn-outline-primary"  %>

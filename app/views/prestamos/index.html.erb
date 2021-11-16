@@ -1,0 +1,46 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listado de Prestamos</h1>
+
+<table class="table table-striped table-hover"  style="with : 80% " >
+  <thead>
+    <tr>
+      <th>Fecha</th>
+      <th>Estado</th>
+      <th>Usuario</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @prestamo.each do |prestamo| %>
+      <tr>
+        <td><%= prestamo.fecha %></td>
+        <td><%= prestamo.estado %></td>
+        <td><%= prestamo.Usuario_id.to_s + ' - ' + prestamo.Usuario.nombres + ' ' + prestamo.Usuario.apellidos %></td>
+        <td><%= link_to 'Show', prestamo, :class=>"btn btn-outline-success"  %></td>
+        <td><%= link_to 'Edit', edit_prestamo_path(prestamo), :class=>"btn btn-outline-info"  %></td>
+        <td><%= link_to 'Destroy', prestamo, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-outline-danger"  %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<form method="GET" class="form-group row">
+
+<div class="mb3">
+  
+   <%= select("", "Usuarios_id", Usuario.all.map{|u|[u.id.to_s + ' - ' + u.nombres + ' '+ u.apellidos, u.id]}, { include_blank: '' }, {class: "form-control"}) %>
+   <Br>
+   <input type="submit" value="Buscar" class="btn btn-outline-success"/>
+</div>
+
+</form>
+<Br>
+
+<%= link_to 'New Prestamo', new_prestamo_path, :class => "btn btn-outline-primary"%> |
+<%= link_to 'Prestamos', prestamos_path, :class => "btn btn-outline-warning" %>
+
+
+
+
+

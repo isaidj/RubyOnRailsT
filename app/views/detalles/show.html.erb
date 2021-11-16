@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+<h1>Showing Detalle</h1>
+
+<div class="container-fluid p-5 my-5 ">
+<p>
+  <strong>Cantidad:</strong>
+  <%= @detalle.cantidad %>
+</p>
+
+<p>
+  <strong>Prestamo:</strong>
+  <%= @detalle.Prestamo_id.to_s + ' - ' + @detalle.Prestamo.fecha.to_s %>
+</p>
+
+<p>
+  <strong>Libro:</strong>
+  <%= @detalle.Libro_id.to_s + ' - ' + @detalle.Libro.titulo %>
+</p>
+</div>
+
+<%= link_to 'Edit', edit_detalle_path(@detalle), :class => "btn btn-outline-info" %> |
+<%= link_to 'Back', detalles_path, :class => "btn btn-outline-success" %>

@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+    <h1>Showing Prestamo</h1>
+<div class="container-fluid p-5 my-5">
+<p>
+  <strong>Fecha:</strong>
+  <%= @prestamo.fecha %>
+</p>
+
+<p>
+  <strong>Estado:</strong>
+  <%= @prestamo.estado %>
+</p>
+
+<p>
+  <strong>Usuario:</strong>
+  <%= @prestamo.Usuario_id.to_s + ' - ' + @prestamo.Usuario.nombres + ' ' + @prestamo.Usuario.apellidos %>
+</p>
+</div>
+
+<%= link_to 'Edit', edit_prestamo_path(@prestamo), :class => "btn btn-outline-info" %> |
+<%= link_to 'Back', prestamos_path, :class => "btn btn-outline-success" %>

@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+<h1>Showing User</h1>
+
+
+<div class="container-fluid p-5 my-5 ">
+    
+<p class="mb-3">
+  <strong>Nombres:</strong>
+  <%= @usuario.nombres %>
+</p>
+
+<p>
+  <strong>Apellidos:</strong>
+  <%= @usuario.apellidos %>
+</p>
+
+<p>
+  <strong>Direccion:</strong>
+  <%= @usuario.direccion %>
+</p>
+
+<p>
+  <strong>Telefono:</strong>
+  <%= @usuario.telefono %>
+</p>
+
+<p>
+  <strong>Login:</strong>
+  <%= @usuario.login %>
+</p>
+
+<p>
+  <strong>Password:</strong>
+  <%= @usuario.password %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @usuario.email %>
+</p>
+</div>
+
+<%= link_to 'Edit', edit_usuario_path(@usuario), :class => "btn btn-outline-info" %> |
+<%= link_to 'Back', usuarios_path, :class => "btn btn-outline-success" %>

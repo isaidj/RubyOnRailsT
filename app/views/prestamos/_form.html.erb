@@ -1,0 +1,32 @@
+<%= form_with(model: prestamo, local: true) do |form| %>
+  <% if prestamo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(prestamo.errors.count, "error") %> prohibited this prestamo from being saved:</h2>
+
+      <ul>
+        <% prestamo.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3">
+    <%= form.label :fecha, :class => "form-text"  %>
+    <%= form.date_select :fecha, {:class => "form-control"} %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :estado, :class => "form-text"  %>
+    <%= form.number_field :estado, :class => "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :Usuario_id, :class => "form-text"  %>
+    <%= form.select :Usuario_id, options_for_select(Usuario.all.map{|u|[u.nombres + ' '+ u.apellidos, u.id]}),{}, {:class => "form-control"} %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit :class => "btn btn-outline-success" %>
+  </div>
+<% end %>

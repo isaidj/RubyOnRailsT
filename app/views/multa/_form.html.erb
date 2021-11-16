@@ -1,0 +1,37 @@
+<%= form_with(model: multum, local: true) do |form| %>
+  <% if multum.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(multum.errors.count, "error") %> prohibited this multum from being saved:</h2>
+
+      <ul>
+        <% multum.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3">
+    <%= form.label :valor, :class => "form-text"  %>
+    <%= form.text_field :valor, :class => "form-control"  %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :fecha, :class => "form-text"  %>
+    <%= form.date_select :fecha, :class => "form-control"  %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :estado, :class => "form-text"  %>
+    <%= form.number_field :estado, :class => "form-control"  %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Prestamo_id %>
+    <%= form.select :Prestamo_id, options_for_select(Prestamo.all.map{|p|[p.fecha, p.id]}),{}, {:class => "form-control"} %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit :class => "btn btn-outline-success" %>
+  </div>
+<% end %>

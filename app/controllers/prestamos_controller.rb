@@ -1,0 +1,78 @@
+class PrestamosController < ApplicationController
+  before_action :set_prestamo, only: %i[ show edit update destroy ]
+
+  # GET /prestamos or /prestamos.json
+  def index
+     if (params.has_key?(:Usuarios_id)) && params[:Usuarios_id] != '' then 
+      @prestamo = Prestamo.where({ Usuario_id: params[:Usuarios_id] })
+    else
+      @prestamo = Prestamo.all
+    end 
+  end
+
+  # GET /prestamos/1 or /prestamos/1.json
+  def show
+  end
+
+  # GET /prestamos/new
+  def new
+    @prestamo = Prestamo.new
+  end
+
+ 
+  def edit
+  end
+
+  # POST /prestamos or /prestamos.json
+  def create
+    @prestamo = Prestamo.new(prestamo_params)
+
+    respond_to do |format|
+      if @prestamo.save
+        format.html { redirect_to @prestamo, notice: "Prestamo was successfully created." }
+        format.json { render :show, status: :created, location: @prestamo }
+      else
+        format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: @prestamo.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # PATCH/PUT /prestamos/1 or /prestamos/1.json
+  def update
+    respond_to do |format|
+      if @prestamo.update(prestamo_params)
+        format.html { redirect_to @prestamo, notice: "Prestamo was successfully updated." }
+        format.json { render :show, status: :ok, location: @prestamo }
+      else
+        format.html { render :edit, status: :unprocessable_entity }
+        format.json { render json: @prestamo.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # DELETE /prestamos/1 or /prestamos/1.json
+  def destroy
+    @prestamo.destroy
+    respond_to do |format|
+      format.html { redirect_to prestamos_url, notice: "Prestamo was successfully destroyed." }
+      format.json { head :no_content }
+    end
+  end
+
+  private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_prestamo
+      @prestamo = Prestamo.find(params[:id])
+    end
+
+    # Only allow a list of trusted parameters through.
+    def prestamo_params
+      params.require(:prestamo).permit(:fecha, :estado, :Usuario_id)
+    end
+    
+    def integrantes
+    end
+    
+
+end

@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+<h1>Showing Libro</h1>
+
+<div class="container-fluid p-5 my-5 ">
+<p>
+  <strong>Titulo:</strong>
+  <%= @libro.titulo %>
+</p>
+
+<p>
+  <strong>Autor:</strong>
+  <%= @libro.autor %>
+</p>
+
+<p>
+  <strong>Anyo:</strong>
+  <%= @libro.anyo %>
+</p>
+</div>
+
+<%= link_to 'Edit', edit_libro_path(@libro), :class => "btn btn-outline-info" %> |
+<%= link_to 'Back', libros_path, :class => "btn btn-outline-success" %>

@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+<h1>Showing Multa</h1>
+<div class="container-fluid p-5 my-3">
+<p>
+  <strong>Valor:</strong>
+  <%= @multum.valor %>
+</p>
+
+<p>
+  <strong>Fecha:</strong>
+  <%= @multum.fecha %>
+</p>
+
+<p>
+  <strong>Estado:</strong>
+  <%= @multum.estado %>
+</p>
+
+<p>
+  <strong>Prestamo:</strong>
+  <%= @multum.Prestamo_id.to_s + ' - ' + @multum.Prestamo.fecha.to_s  %>
+</p>
+</div>
+
+<%= link_to 'Edit', edit_multum_path(@multum), :class => "btn btn-outline-info" %> |
+<%= link_to 'Back', multa_path, :class => "btn btn-outline-success" %>

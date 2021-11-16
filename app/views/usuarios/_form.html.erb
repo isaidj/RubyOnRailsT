@@ -1,0 +1,54 @@
+<div class="form">
+<%= form_with(model: usuario, local: true) do |form| %>
+  <% if usuario.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(usuario.errors.count, "error") %> prohibited this usuario from being saved:</h2>
+
+      <ul>
+        <% usuario.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3">
+    <%= form.label :nombres, :class => "form-text" %>
+    <%= form.text_field :nombres, :class => "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :apellidos, :class => "form-text" %>
+    <%= form.text_field :apellidos, :class => "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :direccion, :class => "form-text"  %>
+    <%= form.text_field :direccion, :class => "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :telefono, :class => "form-text" %>
+    <%= form.text_field :telefono, :class => "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :login, :class => "form-text" %>
+    <%= form.text_field :login, :class => "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :password, :class => "form-text" %>
+    <%= form.text_field :password, :class => "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :email, :class => "form-text" %>
+    <%= form.text_field :email, :class => "form-control" %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit  :class => "btn btn-outline-success"%>
+  </div>
+<% end %>
+</div>
